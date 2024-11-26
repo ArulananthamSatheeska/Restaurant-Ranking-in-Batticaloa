@@ -3,7 +3,7 @@ import pandas as pd
 import os
 import pickle
 import nltk
-from nltk.tokenize import word_tokenize
+from nltk.tokenize import word_tokenizeyyy
 
 # Ensure NLTK punkt is downloaded
 nltk.download('punkt')
@@ -133,6 +133,13 @@ def rankings():
     # Get sorted rankings based on positive sentiment percentage
     sorted_restaurants = get_rankings(restaurant_results)
     return render_template('ranking.html', sorted_restaurants=sorted_restaurants)
+
+@app.route('/restaurants', methods=['GET'])
+def get_restaurants():
+    restaurant_results = load_model()
+    if restaurant_results is None:
+        return {"error": "No restaurant data found. Please ensure the model is saved."}, 404
+    return {"restaurants": restaurant_results}, 200
 
 if __name__ == '__main__':
     app.run(debug=False)
