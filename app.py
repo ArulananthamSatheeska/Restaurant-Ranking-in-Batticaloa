@@ -135,6 +135,4 @@ def rankings():
     return render_template('ranking.html', sorted_restaurants=sorted_restaurants)
 
 if __name__ == '__main__':
-    app.run(debug=True)
-    from waitress import serve
-    serve(app, host="0.0.0.0", port=8080)
+    app.run(debug=False)
