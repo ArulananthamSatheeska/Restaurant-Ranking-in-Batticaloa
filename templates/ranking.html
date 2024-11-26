@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Rankings</title>
+    <link rel="stylesheet" href="./static/ranking_style.css">
+    <script>
+        function toggleDetails(index) {
+            const details = document.getElementById(`details-${index}`);
+            details.style.display = details.style.display === 'none' ? 'block' : 'none';
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <h1>Restaurant Rankings</h1>
+        
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <ul>
+              {% for message in messages %}
+                <li>{{ message }}</li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        {% endwith %}
+
+        <ul>
+            {% for restaurant in sorted_restaurants %}
+                <li>
+                    <span class="restaurant-name" onclick="toggleDetails({{ loop.index0 }})">{{ restaurant['name'] }}</span>
+                    <div class="restaurant-details" id="details-{{ loop.index0 }}">
+                        <span>Positive Sentiment: <span class="sentiment">{{ restaurant['result']['pos_percentage'] }}%</span></span><br>
+                        <span class="best-dish">Best Dish: {{ restaurant['best_dish'] }}</span>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+        
+        <h2><a href="{{ url_for('index') }}">Back to Home</a></h2>
+    </div>
+</body>
+</html>

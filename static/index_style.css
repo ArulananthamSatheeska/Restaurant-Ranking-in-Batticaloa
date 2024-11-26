@@ -1,0 +1,127 @@
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #a1ffce, #fbc2eb); /* Light teal to soft pink */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: #333; /* Dark color for main heading */
+            text-align: center;
+            margin-bottom: 1em;
+            animation: fadeIn 1s ease-in-out; /* Updated animation */
+        }
+
+        form {
+            background: rgba(255, 255, 255, 0.95); /* Subtle white background */
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            animation: fadeInUp 1s ease-in-out;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+            color: #444; /* Dark gray for text */
+        }
+
+        select, textarea, input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #bbb; /* Light gray border */
+            border-radius: 8px;
+            font-size: 1em;
+            background-color: #f9f9f9; /* Light background for inputs */
+        }
+
+        button {
+            width: 100%;
+            background: linear-gradient(to right, #34e89e, #0f3443); /* Green to dark teal */
+            color: #fff;
+            padding: 10px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s ease-in-out;
+        }
+
+        button:hover {
+            background: linear-gradient(to right, #0f3443, #34e89e); /* Reverse hover color */
+        }
+
+        h2 {
+            text-align: center;
+            margin-top: 20px;
+            color: #333; /* Dark color for subheading */
+            animation: fadeIn 1s ease-in-out; /* Updated animation */
+        }
+
+        h2 a {
+            color: #333; /* Dark color for link */
+            text-decoration: none;
+            transition: color 0.3s ease-in-out;
+        }
+
+        h2 a:hover {
+            color: #d1f0ff; /* Slightly lighter hover color */
+        }
+
+        ul {
+            background-color: rgba(255, 255, 255, 0.85); /* Slightly transparent white */
+            padding: 10px;
+            border-radius: 8px;
+            list-style-type: none;
+            animation: fadeInDown 1s ease-in-out;
+        }
+
+        li {
+            margin-bottom: 10px;
+            color: #333;
+            font-weight: bold;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(-20px); /* Slight upward motion */
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInDown {
+            0% {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }

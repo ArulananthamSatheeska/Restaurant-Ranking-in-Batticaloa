@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./static/index_style.css">
+    <title>Restaurant Sentiment Analysis</title>
+</head>
+<body>
+    <div>
+        <h1>Restaurant Sentiment Analysis in Batticaloa</h1>
+        
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <ul>
+              {% for message in messages %}
+                <li>{{ message }}</li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        {% endwith %}
+
+        <h2>Update Restaurant Data</h2>
+        <form method="POST" action="{{ url_for('submit_review') }}">
+            <label for="restaurant_name">Select Restaurant:</label>
+            <select name="restaurant_name" required>
+                {% for restaurant in restaurants %}
+                    <option value="{{ restaurant['name'] }}">{{ restaurant['name'] }}</option>
+                {% endfor %}
+            </select>
+            <br>
+            <label for="new_review">Enter your review:</label>
+            <textarea name="new_review" required></textarea>
+            <br>
+            <label for="new_recommended_dish">Enter your recommended dish:</label>
+            <input type="text" name="new_recommended_dish" required>
+            <br>
+            <button type="submit">Submit Review</button>
+        </form>
+
+        <h2><a href="{{ url_for('rankings') }}">View Rankings</a></h2>
+    </div>
+</body>
+</html>
